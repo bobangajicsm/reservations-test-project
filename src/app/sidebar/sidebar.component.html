@@ -1,0 +1,19 @@
+<div class="sidebar">
+  <ul class="sidebar__ul">
+    <ng-container *ngFor="let city of cityList">
+      <li class="sidebar__li"
+          [ngClass]="{'sidebar__li--active': city?.id === selectedCity?.id}">
+        <div class="row no-gutters" (click)="setActive(city)">
+          <div class="col-4">
+            <app-sidebar-color [color]="city.color"></app-sidebar-color>
+            <p class="sidebar__li-id">{{'#' + city.id}}</p>
+          </div>
+          <div class="col-8">
+            <p class="sidebar__li-title">{{city.title + ':'}}</p>
+            <p class="sidebar__li-text">{{city.text}}</p>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>

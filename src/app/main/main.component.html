@@ -1,0 +1,66 @@
+<div class="row no-gutters">
+  <div class="col-lg-6">
+    <form>
+      <!-- Editable table -->
+      <div class="card">
+        <div class="card-body">
+          <div id="table" class="table-editable">
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+              <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Color</th>
+              </tr>
+              <tr>
+                <td class="table-editable__td">
+                  <input
+                    class="table-editable__input"
+                    type="text"
+                    [value]="editableCity?.id"
+                    (keyup)="changeValue('id', $event)">
+                </td>
+                <td class="table-editable__td">
+                    <input
+                      class="table-editable__input"
+                      type="text"
+                      [value]="editableCity?.title"
+                      (keyup)="changeValue('title', $event)">
+                </td>
+                <td class="table-editable__td">
+                  <input
+                    class="table-editable__input"
+                    type="text"
+                    [value]="editableCity?.color"
+                    (keyup)="changeValue('color', $event)">
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Text</label>
+            <textarea class="form-control"
+                      (keyup)="changeValue('text', $event, true)"
+                      [value]="editableCity?.text"
+                      id="exampleFormControlTextarea1"
+                      rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="button"
+                    class="btn btn-primary mr-1"
+                    [disabled]="!(!selectedCity?.id && !!editableCity?.id)"
+                    (click)="add()">Add</button>
+            <button type="button"
+                    class="btn btn-success mr-1"
+                    [disabled]="(!selectedCity || !editableCity?.id)"
+                    (click)="save()">Save</button>
+            <button type="button"
+                    class="btn btn-danger"
+                    [disabled]="!selectedCity"
+                    (click)="remove()">Remove</button>
+          </div>
+        </div>
+      </div>
+      <!-- Editable table -->
+    </form>
+  </div>
+</div>

@@ -30,7 +30,7 @@ export class MainComponent implements OnChanges {
     this.citesList[id][property] = editField;
   }
 
-  remove(id: any) {
+  remove() {
     if (confirm('You are about to remove this entry?!')) {
       this.cityRemoved.emit(true);
       this.editableCity = null;
